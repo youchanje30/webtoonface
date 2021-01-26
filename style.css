@@ -146,6 +146,7 @@ body {
 	margin-top: 100px;
 }
 .title{
+	font-size: 4rem;
 	font-family: NanumSquareR;
 	line-height: 1.67;
 	text-align: center;
@@ -153,6 +154,7 @@ body {
 }
 
 .subtitle{
+	font-size: 2rem;
 	font-family: NanumSquareR;
 	line-height: 1.53;
 	text-align: center;

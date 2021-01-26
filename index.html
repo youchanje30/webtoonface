@@ -40,10 +40,17 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">나와 닮은 캐릭터</a>
+							<a class="nav-link active" aria-current="page" href="#"
+								>나와 닮은 캐릭터</a
+							>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" id="website-top-link "href="https://webtoonface.netlify.app/#">나와 닮은 웹툰 캐릭터</a>
+							<a
+								class="nav-link"
+								id="website-top-link "
+								href="https://webtoonface.netlify.app/#"
+								>나와 닮은 웹툰 캐릭터</a
+							>
 						</li>
 						<li class="nav-item dropdown">
 							<a
@@ -113,6 +120,8 @@
 			</div>
 			<div class="file-upload-content">
 				<img class="file-upload-image" id="face-image" src="#" alt="your image" />
+				<div class="file-result-content"></div>
+				<img class="file-result-image" id="result-image" src='ResultSrc' alt="your image" />
 
 				<div id="loading" class="animated bounce">
 					<div class="spinner-border" role="status"></div>
@@ -120,6 +129,7 @@
 				</div>
 
 				<p class="result-message"></p>
+
 				<div id="label-container" class="d-flex flex-column justify-content-around"></div>
 				<div id="addThis" class="addthis_inline_share_toolbox_6lz1"></div>
 
@@ -185,6 +195,9 @@
 					var reader = new FileReader();
 
 					reader.onload = function (e) {
+						$('.file-result-content').hide();
+						$('.file-result-image').hide();
+						
 						$('.image-upload-wrap').hide();
 						$('.result-message').hide();
 						$('#loading').show();
@@ -248,11 +261,12 @@
 				const prediction = await model.predict(image, false);
 				prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
 				console.log(prediction[0].className);
-				var WebName, CharacterName;
+				var WebName, CharacterName, ResultSrc;
 				switch (prediction[0].className) {
 					case '나노리스트 나노':
 						WebName = '나노리스트';
 						CharacterName = '나노';
+						ResultSrc = 'img/photoimage.png';
 						break;
 					case '나노리스트 산':
 						WebName = '나노리스트';
@@ -290,7 +304,7 @@
 						WebName = '여신강림';
 						CharacterName = '임주경';
 						break;
-					case '오로지너를이기고싶어 오로지':
+					case '오로지 너를 이기고 싶어 오로지':
 						WebName = '오로지너를이기고싶어';
 						CharacterName = '오로지';
 						break;
@@ -312,6 +326,9 @@
 				}
 				$('.result-message').html(WebName + '   ' + CharacterName);
 				$('.result-message').show();
+				$('.file-result-content').show();
+				$('.file-result-image').show();
+				$('.file-result-image').attr('src', e.target.result);
 				/* for (let i = 0; i < maxPredictions; i++) {
 					const classPrediction =
 						prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
