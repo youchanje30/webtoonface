@@ -207,3 +207,13 @@ body {
 	width:300px;
 	margin: 0 auto;
 }
+.bottom-ad-banner2{
+	width:300px;
+	margin: 0 auto;
+}
+.result-image {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+}

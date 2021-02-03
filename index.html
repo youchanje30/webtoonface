@@ -157,6 +157,12 @@
 			</div>
 			<div class="file-upload-content">
 				<img class="file-upload-image" id="face-image" src="#" alt="your image" />
+				<img
+					class="result-image"
+					id="resultimage"
+					src="img/questionmark.jpg"
+					alt="result-image"
+				/>
 
 				<div id="loading" class="animated bounce">
 					<div class="spinner-border" role="status"></div>
@@ -225,6 +231,18 @@
 			></ins>
 		</div>
 
+		<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+		
+		
+		<div class="bottom-ad-banner2">
+			<ins
+				class="kakao_ad_area"
+				style="display: none;"
+				data-ad-unit="DAN-N2DumLpCVsaiWkYo"
+				data-ad-width="300"
+				data-ad-height="250"
+			></ins>
+		</div>
 		<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 		<!-- Optional JavaScript; choose one of the two! -->
 
@@ -315,63 +333,77 @@
 				const prediction = await model.predict(image, false);
 				prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
 				console.log(prediction[0].className);
-				var WebName, CharacterName;
+				var WebName, CharacterName, result_image;
 				switch (prediction[0].className) {
 					case '나노리스트 나노':
 						WebName = '나노리스트';
 						CharacterName = '나노';
+						result_image = resultimage.setAttribute('src', 'img/photoimage.png');
 						break;
 					case '나노리스트 산':
 						WebName = '나노리스트';
 						CharacterName = '산';
+						result_image = resultimage.setAttribute('src', 'img/oroji.jpg');
 						break;
 					case '랜덤채팅의그녀 박하민':
 						WebName = '랜덤채팅의그녀';
 						CharacterName = '박하민';
+						result_image = resultimage.setAttribute('src', 'img/oroji.jpg');
 						break;
 					case '랜덤채팅의그녀 서리라':
 						WebName = '랜덤채팅의그녀';
 						CharacterName = '서리라';
+						result_image = resultimage.setAttribute('src', 'img/surira.jpg');
 						break;
 					case '바른연애길잡이 정바름':
 						WebName = '바른연애길잡이';
 						CharacterName = '정바름';
+						result_image = resultimage.setAttribute('src', 'img/jengbarum.jpg');
 						break;
 					case '신석기녀 강숙희':
 						WebName = '신석기녀';
 						CharacterName = '강숙희';
+						result_image = resultimage.setAttribute('src', 'img/gangshukhi.jpg');
 						break;
 					case '신의탑 엔도르시':
 						WebName = '신의탑';
-						CharacterName = '엔도르시';
+						CharacterName = '엔도르시 자하드';
+						result_image = resultimage.setAttribute('src', 'img/endorosi.jpg');
 						break;
 					case '신의탑 유리':
 						WebName = '신의탑';
-						CharacterName = '유리';
+						CharacterName = '하 유리 자하드';
+						result_image = resultimage.setAttribute('src', 'img/hayuri.jpg');
 						break;
 					case '신의탑 화련':
 						WebName = '신의탑';
 						CharacterName = '화련';
+						result_image = resultimage.setAttribute('src', 'img/hwaryen.jpg');
 						break;
 					case '여신강림 임주경':
 						WebName = '여신강림';
 						CharacterName = '임주경';
+						result_image = resultimage.setAttribute('src', 'img/imjugyeng.jpg');
 						break;
 					case '오로지 너를 이기고 싶어 오로지':
 						WebName = '오로지너를이기고싶어';
 						CharacterName = '오로지';
+						result_image = resultimage.setAttribute('src', 'img/oroji.jpg');
 						break;
 					case '연애혁명 왕자림':
 						WebName = '연애혁명';
 						CharacterName = '왕자림';
+						result_image = resultimage.setAttribute('src', 'img/wangjarim.jpg');
 						break;
 					case '제로게임 유한라':
 						WebName = '제로게임';
 						CharacterName = '유한라';
+						result_image = resultimage.setAttribute('src', 'img/yuhanla.jpg');
 						break;
 					case '테러맨 릴리아':
 						WebName = '테러맨';
 						CharacterName = '릴리아';
+						result_image = resultimage.setAttribute('src', 'img/lilia.jpg');
 						break;
 					default:
 						WebName = '다시시도해주세요!';
