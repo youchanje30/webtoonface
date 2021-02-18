@@ -56,7 +56,6 @@
 	</head>
 
 	<body>
-		
 		<div class="top-ad-banner">
 			<ins
 				class="kakao_ad_area"
@@ -74,13 +73,26 @@
 		<section class="youtube">
 			<div class="container mt-5 youtube-cover d-flex flex-row-reverse">
 				<!-- <img src="" alt="" class="youtube-icon" /> -->
-				<a
-					href=""
-					class="youtube-link"
-					>제작 도움: 조코딩</a
-				>
+				<a href="" class="youtube-link">제작 도움: 조코딩</a>
 			</div>
 		</section>
+
+		
+		<!-- 성별 전환 기능  -->
+		<!-- <h3 class="pb-2 d-flex justify-content-center">성별을 선택하세요</h3>
+		<section class="d-flex justify-content-center">
+			<p class="d-flex align-items-center pr-3">여자</p>
+			<div>
+				<input type="checkbox" id="gender" />
+				<label for="gender"
+					>
+					<span class="knob">
+						<i></i>
+					</span>
+				</label>
+			</div>
+			<p class="d-flex align-items-center pl-3">남자</p>
+		</section> -->
 
 		<script
 			class="jsbin"
@@ -189,7 +201,7 @@
 			></ins>
 		</div>
 		<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-		
+
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
 			integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
@@ -377,17 +389,14 @@
 					case '사신소년 시이라':
 						WebName = '사신소년';
 						CharacterName = '시이라';
-						result_image = resultimage.setAttribute('src', 'img/wangjarim.jpg');
+						result_image = resultimage.setAttribute('src', 'img/sira.jpg');
 						break;
 					case '사신소년 한채연':
 						WebName = '사신소년';
 						CharacterName = '한채연';
-						result_image = resultimage.setAttribute('src', 'img/wangjarim.jpg');
-						break;	
-					
-						
-						
-						
+						result_image = resultimage.setAttribute('src', 'img/hanchayeon.jpg');
+						break;
+
 					default:
 						WebName = '다시시도해주세요!';
 						CharacterName = '';
@@ -395,7 +404,6 @@
 				}
 				$('.result-message').html(WebName + '   ' + CharacterName);
 				$('.result-message').show();
-				
 			}
 		</script>
 	</body>
